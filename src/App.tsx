@@ -105,7 +105,7 @@ export default function Game() {
     });
 
     socket.on("gameEnd", ({ winner, players }) => {
-      if (player !== null) {
+      if (player !== null && socket.id !== undefined) {
         if (winner === "X" && players[socket.id] === 0) {
           setResult("Victory");
         } else if (winner === "O" && players[socket.id] === 1) {
